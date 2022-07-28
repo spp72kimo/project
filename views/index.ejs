@@ -28,12 +28,12 @@
     /><% } %> <% } %> <%= errorMessage %>
     <ul>
       <% if(!user) { %>
-      <li><a href="/login">Login</a></li>
-      <li><a href="/register">Register</a></li>
-      <li><a href="/auth/google">Google Authencitation</a></li>
-      <li><a href="#">Facebook Authencitation</a></li>
+      <li><a href="/user/login">Login</a></li>
+      <li><a href="/user/register">Register</a></li>
+      <li><a href="/auth/google">Google Authentication</a></li>
+      <li><a href="#">Facebook Authentication</a></li>
       <% } else { %>
-      <li><a href="logout">Logot</a></li>
+      <li><a href="/user/logout">Logot</a></li>
       <% } %>
     </ul>
   </body>

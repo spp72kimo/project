@@ -17,7 +17,7 @@ module.exports = {
     }).then((user) => {
       if (user === null) {
         req.flash("errorMessage", "帳號密碼錯誤！");
-        return res.redirect("/login");
+        return res.redirect("/user/login");
       }
 
       bcrypt.compare(password, user.password, (err, result) => {
@@ -30,7 +30,7 @@ module.exports = {
           return res.redirect("/");
         } else {
           req.flash("errorMessage", "帳號密碼錯誤！");
-          res.redirect("/login");
+          res.redirect("/user/login");
         }
       });
     });
@@ -46,7 +46,7 @@ module.exports = {
       if (err) {
         console.log(err.toString());
         req.flach("errorMessage", "hash error occured.");
-        return res.redirect("/register");
+        return res.redirect("/user/register");
       }
 
       User.create({
@@ -65,11 +65,11 @@ module.exports = {
         .catch((err) => {
           if (err.toString().includes("SequelizeUnique")) {
             req.flash("errorMessage", "E-mail 已被註冊！");
-            return res.redirect("/register");
+            return res.redirect("/user/register");
           }
 
           req.flash("errorMessage", err.toString());
-          return res.redirect("/register");
+          return res.redirect("/user/register");
         });
     });
   },

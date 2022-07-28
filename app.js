@@ -5,14 +5,15 @@ const session = require("express-session");
 const flash = require("connect-flash");
 const passport = require("passport");
 const mongoose = require("mongoose");
-
 const express = require("express");
+
+// set express
 const app = express();
 const port = process.env.EXPRESS_PORT;
 
-// include controllers
-const userController = require("./controllers/userController");
-const googleController = require("./controllers/googleController");
+// inclute routers
+const userRouter = require("./routers/user");
+const authRouter = require("./routers/auth");
 
 // connect to mongoDB
 mongoose
@@ -42,18 +43,13 @@ app.use((req, res, next) => {
   next();
 });
 
+// set routers
+app.use("/auth", authRouter);
+app.use("/user", userRouter);
+
 app.get("/", (req, res) => {
   res.render("index");
 });
-app.get("/login", userController.login);
-app.post("/login", userController.handleLogin);
-app.get("/register", userController.register);
-app.post("/register", userController.handleRegister);
-app.get("/logout", userController.logout);
-app.get("/auth/google", googleController.login);
-app.get("/auth/google/redirect", googleController.callback);
-app.get("/auth/google/success", googleController.success);
-app.get("/auth/google/failure", googleController.fail);
 
 app.listen(port, () => {
   console.log("Server is running on port " + port);
