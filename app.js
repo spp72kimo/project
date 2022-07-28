@@ -13,7 +13,6 @@ const port = process.env.EXPRESS_PORT;
 // include controllers
 const userController = require("./controllers/userController");
 const googleController = require("./controllers/googleController");
-const { login_correct } = require("./controllers/googleController");
 
 // connect to mongoDB
 mongoose
