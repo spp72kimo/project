@@ -10,6 +10,9 @@ const userSchema = new mongoose.Schema({
   googleID: {
     type: String,
   },
+  facebookID: {
+    type: String,
+  },
   thumbnail: {
     type: String,
   },
