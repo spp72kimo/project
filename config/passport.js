@@ -9,7 +9,7 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "http://localhost:3000/auth/google/redirect",
+      callbackURL: "https://steven.idv.tw/auth/google/redirect",
     },
     function (accessToken, refreshToken, profile, cb) {
       User.findOne({ googleID: profile.id })
@@ -43,7 +43,7 @@ passport.use(
     {
       clientID: process.env.FACEBOOK_APP_ID,
       clientSecret: process.env.FACEBOOK_APP_SECRET,
-      callbackURL: "http://localhost:3000/auth/facebook/redirect",
+      callbackURL: "http://steven.idv.tw/auth/facebook/redirect",
     },
     function (accessToken, refreshToken, profile, cb) {
       User.findOne({ faecbookID: profile.id })
