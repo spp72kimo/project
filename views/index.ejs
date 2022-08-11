@@ -1,40 +1,54 @@
 <!DOCTYPE html>
 <html lang="zh_Hant">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Steven Ke" />
-    <meta name="description" content="描述網站內容" />
-    <meta name="robot" content="index, follow" />
-    <!-- google font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap"
-      rel="stylesheet"
-    />
-    <title>網頁標題</title>
-    <link rel="stylesheet" href="./styles/style.css" />
+    <%- include('./components/head') %>
   </head>
   <body>
-    <% if(!user) { %>
-    <h1>Project_index</h1>
-    <% } else { %>
-    <h1><%= user.username.toUpperCase() %>, wellcome!!</h1>
-    <% if(user.thumbnail) { %><img
-      src="<%= user.thumbnail %>"
-      alt="thumbnail"
-    /><% } %> <% } %> <%= errorMessage %>
-    <ul>
-      <% if(!user) { %>
-      <li><a href="/user/login">Login</a></li>
-      <li><a href="/user/register">Register</a></li>
-      <li><a href="/auth/google">Google Authentication</a></li>
-      <li><a href="/auth/facebook">Facebook Authentication</a></li>
-      <% } else { %>
-      <li><a href="/user/logout">Logot</a></li>
-      <% } %>
-    </ul>
+    <%- include('./components/nav') %>
+    <div class="app">
+      <div class="container">
+        <div class="logo">
+          <h1>To Do List.</h1>
+        </div>
+        <div class="input_div mb-2">
+          <input
+            class="form-control"
+            type="text"
+            name="event"
+            placeholder="What needs to be done?"
+          />
+        </div>
+        <div
+          class="controller d-flex justify-content-between align-items-center"
+        >
+          <div class="view_control">
+            <ul class="nav nav-tabs view_control">
+              <li><span class="nav-link view_all active">All</span></li>
+              <li><span class="nav-link view_active">Active</span></li>
+              <li><span class="nav-link view_complete">Complete</span></li>
+            </ul>
+          </div>
+          <div class="count me-2"></div>
+        </div>
+        <div class="list">
+          <ul class="list-group"></ul>
+        </div>
+        <div
+          class="event_controller d-flex justify-content-between align-items-center"
+        >
+          <div class="select_all d-flex">
+            <!-- <span class="select_btn">select all</span> -->
+          </div>
+          <div class="clear_all">
+            <!-- <span class="clear_btn">clear complete</span> -->
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
+  <!-- Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- jQuery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script type="text/javascript" src="./index.js"></script>
 </html>

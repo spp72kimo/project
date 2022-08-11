@@ -18,4 +18,4 @@ const userSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("userGoogle", userSchema);
+module.exports = mongoose.model("userAuth", userSchema);

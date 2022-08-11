@@ -25,6 +25,7 @@ mongoose
   });
 
 app.set("view engine", "ejs");
+app.use(express.static(__dirname + "/public"));
 app.use(
   session({
     secret: process.env.SESSION_SECRET,

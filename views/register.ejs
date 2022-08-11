@@ -1,23 +1,10 @@
 <!DOCTYPE html>
 <html lang="zh_Hant">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Steven Ke" />
-    <meta name="description" content="描述網站內容" />
-    <meta name="robot" content="index, follow" />
-    <!-- google font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap"
-      rel="stylesheet"
-    />
-    <title>User Register</title>
-    <link rel="stylesheet" href="./styles/style.css" />
+    <%- include('./components/head') %>
   </head>
   <body>
+    <%- include('./components/nav') %>
     <h2>User Register</h2>
     <%= errorMessage %>
     <form action="/user/register" method="post">
