@@ -15,22 +15,16 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <% if(!user) { %>
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle"
-            href="#"
-            id="navbarDropdown"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            第三方登入
-          </a>
 
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="/auth/google">Google</a></li>
-            <li><a class="dropdown-item" href="/auth/facebook">Facebook</a></li>
-          </ul>
+        <li class="nav-item">
+          <a class="nav-link" href="/auth/google"
+            ><i class="fa-brands fa-google fa-xl me-1"></i
+          ></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/auth/google"
+            ><i class="fa-brands fa-facebook fa-xl me-1"></i
+          ></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/user/login">登入</a>
@@ -50,8 +44,3 @@
     </div>
   </div>
 </nav>
-
-<% if(!user) { %> <% } else { %>
-<h1><%= user.username.toUpperCase() %>, wellcome!!</h1>
-<% if(user.thumbnail) { %><img src="<%= user.thumbnail %>" alt="thumbnail" /><%
-} %> <% } %> <%= errorMessage %>

@@ -1,0 +1,4 @@
+<% if(!user) { %> <% } else { %>
+<h1><%= user.username.toUpperCase() %>, wellcome!!</h1>
+<% if(user.thumbnail) { %><img src="<%= user.thumbnail %>" alt="thumbnail" /><%
+} %> <% } %> <%= errorMessage %>
