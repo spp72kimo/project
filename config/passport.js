@@ -43,7 +43,7 @@ passport.use(
     {
       clientID: process.env.FACEBOOK_APP_ID,
       clientSecret: process.env.FACEBOOK_APP_SECRET,
-      callbackURL: "http://steven.idv.tw/auth/facebook/redirect",
+      callbackURL: "https://steven.idv.tw/auth/facebook/redirect",
     },
     function (accessToken, refreshToken, profile, cb) {
       User.findOne({ faecbookID: profile.id })
