@@ -1,6 +1,31 @@
+.profile {
+  margin-top: 1rem;
+  padding-left: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.profile .photoContainer {
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.profile .greeting {
+  font-size: 20px;
+  margin-left: 0.5rem;
+}
+
 .app {
   max-width: 450px;
-  margin: 50px auto;
+  min-width: 380px;
+  margin: 20px auto;
   padding: 20px 5px;
   border: 1px solid #888888;
   border-radius: 10px;

@@ -1,4 +1,9 @@
-<% if(!user) { %> <% } else { %>
-<h1><%= user.username.toUpperCase() %>, wellcome!!</h1>
-<% if(user.thumbnail) { %><img src="<%= user.thumbnail %>" alt="thumbnail" /><%
-} %> <% } %> <span class="message"><%= errorMessage %><%= saveMessage %> </span>
+<% if(!user) { %> <% } else { %> <% if(user.thumbnail) { %>
+<div class="photoContainer">
+  <img class="photo" src="<%= user.thumbnail %>" alt="thumbnail" />
+</div>
+<% } %>
+<span class="greeting"><%= user.username.toUpperCase() %>, wellcome!!</span>
+<% } %>
+
+<span class="message"><%= errorMessage %><%= saveMessage %> </span>
