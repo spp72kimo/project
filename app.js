@@ -7,6 +7,9 @@ const passport = require("passport");
 const mongoose = require("mongoose");
 const express = require("express");
 
+// impoer controller
+const listController = require("./controllers/listController");
+
 // set express
 const app = express();
 const port = process.env.EXPRESS_PORT;
@@ -14,6 +17,7 @@ const port = process.env.EXPRESS_PORT;
 // inclute routers
 const userRouter = require("./routers/user");
 const authRouter = require("./routers/auth");
+const { render } = require("ejs");
 
 // connect to mongoDB
 mongoose
@@ -40,6 +44,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use((req, res, next) => {
   res.locals.errorMessage = req.flash("errorMessage");
+  res.locals.saveMessage = req.flash("saveMessage");
   res.locals.user = req.session.user;
   next();
 });
@@ -51,6 +56,11 @@ app.use("/user", userRouter);
 app.get("/", (req, res) => {
   res.render("index");
 });
+app.get("/save", (req, res) => {
+  res.render("save");
+});
+app.post("/save", listController.save);
+app.get("/load", listController.load);
 
 app.listen(port, () => {
   console.log("Server is running on port " + port);

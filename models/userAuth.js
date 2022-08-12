@@ -16,6 +16,9 @@ const userSchema = new mongoose.Schema({
   thumbnail: {
     type: String,
   },
+  todoList: {
+    type: String,
+  },
 });
 
 module.exports = mongoose.model("userAuth", userSchema);

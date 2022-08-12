@@ -1,5 +1,6 @@
 require("../config/passport");
 const passport = require("passport");
+const User = require("../models/userAuth");
 
 module.exports = {
   login: passport.authenticate("google", { scope: ["profile"] }),

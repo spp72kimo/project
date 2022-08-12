@@ -8,7 +8,7 @@ module.exports = {
     res.render("login");
   },
 
-  handleLogin: (req, res) => {
+  handleLogin: (req, res, next) => {
     const { email, password } = req.body;
     User.findOne({
       where: {

@@ -64,4 +64,9 @@
 .event_controller .select_btn {
   margin-left: 10px;
 }
+
+.message {
+  color: red;
+  font-weight: 600;
+}
 /*# sourceMappingURL=style.css.map */
