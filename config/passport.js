@@ -9,7 +9,7 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "https://steven.idv.tw/auth/google/redirect",
+      callbackURL: "http://localhost:6688/auth/google/redirect",
     },
     function (accessToken, refreshToken, profile, cb) {
       User.findOne({ googleID: profile.id })

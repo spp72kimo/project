@@ -27,13 +27,14 @@
           ></a>
         </li>
 
-        <!-- <li class="nav-item">
+        <!-- <li class="nav-item">  
           <a class="nav-link" href="/user/login">登入</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/user/register">註冊</a>
         </li> -->
         <% } else { %>
+
         <li class="nav-item">
           <a class="nav-link" style="cursor: pointer" onclick="loadList()"
             >取回資料</a
@@ -61,7 +62,9 @@
       body: list,
       headers: { "Content-Type": "application/json" },
     })
-      .then((data) => data.json())
+      .then((data) => {
+        return data.json();
+      })
       .then((result) => {
         if (result.ok === 1) return window.location.assign("/");
       })

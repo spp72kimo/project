@@ -59,7 +59,7 @@ app.get("/", (req, res) => {
 app.get("/save", (req, res) => {
   res.render("save");
 });
-app.post("/save", listController.save);
+app.post("/save", listController.save, listController.handleSave);
 app.get("/load", listController.load);
 
 app.listen(port, () => {
